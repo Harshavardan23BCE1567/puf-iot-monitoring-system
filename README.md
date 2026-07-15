@@ -480,7 +480,7 @@ MIT License - See LICENSE file for details
 
 ## 👤 Author
 
-**Muthuram** - PUF Security Researcher
+**Harshavardan** - PUF Security Researcher
 
 ---
 
@@ -520,4 +520,4 @@ For issues, feature requests, or general questions:
 
 **Version**: 2.0.0  
 **Last Updated**: March 2026  
-**Maintained By**: Muthuram
+**Maintained By**: Harshavardan
