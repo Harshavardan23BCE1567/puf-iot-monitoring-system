@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  puf-system:
+    build: .
+    container_name: puf-iot-system
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - SERIAL_PORT=${SERIAL_PORT:-COM3}
+      - SERIAL_BAUD=${SERIAL_BAUD:-115200}
+      - PORT=3000
+      - DB_PATH=/app/puf.db
+    volumes:
+      - puf-data:/app
+      - ${SERIAL_DEVICE:-/dev/ttyUSB0}:${SERIAL_DEVICE:-/dev/ttyUSB0}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - puf-network
+
+volumes:
+  puf-data:
+    driver: local
+
+networks:
+  puf-network:
+    driver: bridge

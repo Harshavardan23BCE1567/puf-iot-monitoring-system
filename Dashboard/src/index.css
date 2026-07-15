@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+* {
+  @apply transition-colors duration-200;
+}
+
+body {
+  @apply bg-gray-50 text-gray-900 font-sans;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded hover:bg-gray-500;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  @apply animate-[fadeIn_0.3s_ease-out];
+}
+
+/* Status badge */
+.status-indicator {
+  @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium;
+
+  &.status-connected {
+    @apply bg-success-50 text-success-900;
+  }
+
+  &.status-disconnected {
+    @apply bg-danger-50 text-danger-900;
+  }
+
+  &.status-warning {
+    @apply bg-warning-50 text-warning-900;
+  }
+}
+
+/* Chart container */
+.chart-container {
+  @apply bg-white rounded-lg shadow-md p-4;
+}
